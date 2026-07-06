@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧾 Smart Invoice Manager
 
-## Getting Started
+A modern invoice management web application built with Next.js, TypeScript, Prisma, GraphQL, and Stripe. The application helps users create, manage, and track invoices efficiently with a clean and responsive interface.
 
-First, run the development server:
+## 🚀 Features
+
+- Create, edit, and delete invoices
+- Customer management
+- Secure authentication
+- Invoice PDF generation
+- Email invoice to customers
+- Stripe payment integration
+- Dashboard with invoice overview
+- Responsive UI
+- GraphQL API
+- Database management using Prisma
+
+## 🛠️ Tech Stack
+
+- Next.js
+- TypeScript
+- React
+- Prisma ORM
+- GraphQL
+- Stripe
+- PostgreSQL
+- Tailwind CSS
+- Node.js
+
+## 📁 Project Structure
+
+```
+app/
+components/
+graphql/
+lib/
+prisma/
+public/
+store/
+```
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/meenatchi2007/smart-invoice.git
+```
+
+Go to the project folder:
+
+```bash
+cd smart-invoice
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file and add your environment variables.
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 Environment Variables
 
-## Learn More
+Create a `.env.local` file and configure the following:
 
-To learn more about Next.js, take a look at the following resources:
+- Database URL
+- Stripe Secret Key
+- Stripe Publishable Key
+- Email Service API Key
+- Authentication Secret
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📸 Screenshots
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Add screenshots of:
 
-## Deploy on Vercel
+- Dashboard
+- Invoice List
+- Create Invoice Page
+- Invoice PDF
+- Payment Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔮 Future Enhancements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Invoice analytics
+- Multi-user support
+- Dark mode
+- Mobile application
+- GST and Tax reports
+- Export invoices to Excel
+
+## 👩‍💻 Author
+
+**Meenatchi M**
+
+GitHub: https://github.com/meenatchi2007
+
+---
+
+⭐ If you found this project useful, please give it a star!
