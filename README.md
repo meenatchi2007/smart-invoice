@@ -1,113 +1,143 @@
-# 🧾 Smart Invoice Manager
+# Smart Invoice Manager
 
-A modern invoice management web application built with Next.js, TypeScript, Prisma, GraphQL, and Stripe. The application helps users create, manage, and track invoices efficiently with a clean and responsive interface.
+## Overview
 
-## 🚀 Features
+Smart Invoice Manager is a full-stack web application developed to simplify invoice creation, management, and payment tracking. The application enables users to generate professional invoices, manage customer information, process secure online payments, and maintain invoice records through an intuitive and responsive interface.
 
-- Create, edit, and delete invoices
+The project is built using modern web technologies including Next.js, TypeScript, Prisma, GraphQL, and Stripe, following industry-standard development practices.
+
+---
+
+## Features
+
+- User authentication and authorization
+- Create, update, and delete invoices
 - Customer management
-- Secure authentication
-- Invoice PDF generation
-- Email invoice to customers
-- Stripe payment integration
-- Dashboard with invoice overview
-- Responsive UI
-- GraphQL API
-- Database management using Prisma
+- Generate professional PDF invoices
+- Email invoices to customers
+- Secure online payment integration using Stripe
+- Invoice status tracking
+- Dashboard with invoice summary
+- Responsive user interface
+- GraphQL API implementation
+- Database management using Prisma ORM
 
-## 🛠️ Tech Stack
+---
 
-- Next.js
-- TypeScript
-- React
-- Prisma ORM
-- GraphQL
-- Stripe
-- PostgreSQL
-- Tailwind CSS
-- Node.js
+## Technology Stack
 
-## 📁 Project Structure
+| Category | Technologies |
+|----------|--------------|
+| Frontend | Next.js, React, TypeScript |
+| Backend | Next.js API Routes, GraphQL |
+| Database | PostgreSQL, Prisma ORM |
+| Styling | Tailwind CSS |
+| Payments | Stripe |
+| Email Service | Resend |
+| PDF Generation | PDF Generator |
+| Version Control | Git, GitHub |
+
+---
+
+## Project Structure
 
 ```
-app/
-components/
-graphql/
-lib/
-prisma/
-public/
-store/
+smart-invoice-manager/
+│
+├── app/
+├── components/
+├── graphql/
+├── lib/
+├── prisma/
+├── public/
+├── store/
+├── package.json
+└── README.md
 ```
 
-## ⚙️ Installation
+---
 
-Clone the repository:
+## Installation
+
+### Clone the repository
 
 ```bash
 git clone https://github.com/meenatchi2007/smart-invoice.git
 ```
 
-Go to the project folder:
+### Navigate to the project directory
 
 ```bash
 cd smart-invoice
 ```
 
-Install dependencies:
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-Create a `.env.local` file and add your environment variables.
+### Configure environment variables
 
-Run the development server:
+Create a `.env.local` file in the project root and configure the required environment variables.
+
+Example:
+
+```
+DATABASE_URL=
+STRIPE_SECRET_KEY=
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+RESEND_API_KEY=
+```
+
+### Start the development server
 
 ```bash
 npm run dev
 ```
 
-Open:
+The application will be available at:
 
 ```
 http://localhost:3000
 ```
 
-## 📄 Environment Variables
+---
 
-Create a `.env.local` file and configure the following:
+## Application Modules
 
-- Database URL
-- Stripe Secret Key
-- Stripe Publishable Key
-- Email Service API Key
-- Authentication Secret
-
-## 📸 Screenshots
-
-Add screenshots of:
-
+- Authentication
 - Dashboard
-- Invoice List
-- Create Invoice Page
-- Invoice PDF
-- Payment Page
+- Customer Management
+- Invoice Management
+- Payment Processing
+- PDF Generation
+- Email Notifications
 
-## 🔮 Future Enhancements
+---
 
-- Invoice analytics
-- Multi-user support
-- Dark mode
+## Future Enhancements
+
+- Multi-user organization support
+- Advanced analytics dashboard
+- GST and tax report generation
+- Invoice templates
 - Mobile application
-- GST and Tax reports
-- Export invoices to Excel
+- Multi-currency support
+- Export reports to Excel and CSV
 
-## 👩‍💻 Author
+---
+
+## Author
 
 **Meenatchi M**
+
+B.Tech Artificial Intelligence and Data Science
 
 GitHub: https://github.com/meenatchi2007
 
 ---
 
-⭐ If you found this project useful, please give it a star!
+## License
+
+This project is developed for learning, academic, and portfolio purposes.
