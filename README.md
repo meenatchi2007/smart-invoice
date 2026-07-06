@@ -2,9 +2,9 @@
 
 ## Overview
 
-Smart Invoice Manager is a full-stack web application developed to simplify invoice creation, management, and payment tracking. The application enables users to generate professional invoices, manage customer information, process secure online payments, and maintain invoice records through an intuitive and responsive interface.
+Smart Invoice Manager is a modern full-stack web application designed to streamline invoice creation and customer management. It provides an efficient platform for generating professional invoices, organizing customer information, and managing invoice records through an intuitive and responsive interface.
 
-The project is built using modern web technologies including Next.js, TypeScript, Prisma, GraphQL, and Stripe, following industry-standard development practices.
+The application is built using a modern technology stack, including Next.js, React, TypeScript, GraphQL, Prisma ORM, PostgreSQL, and Tailwind CSS. It follows industry-standard software development practices with a scalable architecture and responsive user interface.
 
 ---
 
@@ -15,7 +15,6 @@ The project is built using modern web technologies including Next.js, TypeScript
 - Customer management
 - Generate professional PDF invoices
 - Email invoices to customers
-- Secure online payment integration using Stripe
 - Invoice status tracking
 - Dashboard with invoice summary
 - Responsive user interface
@@ -32,16 +31,13 @@ The project is built using modern web technologies including Next.js, TypeScript
 | Backend | Next.js API Routes, GraphQL |
 | Database | PostgreSQL, Prisma ORM |
 | Styling | Tailwind CSS |
-| Payments | Stripe |
-| Email Service | Resend |
-| PDF Generation | PDF Generator |
 | Version Control | Git, GitHub |
 
 ---
 
 ## Project Structure
 
-```
+```text
 smart-invoice-manager/
 │
 ├── app/
@@ -83,11 +79,9 @@ Create a `.env.local` file in the project root and configure the required enviro
 
 Example:
 
-```
+```env
 DATABASE_URL=
-STRIPE_SECRET_KEY=
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-RESEND_API_KEY=
+AUTH_SECRET=
 ```
 
 ### Start the development server
@@ -98,7 +92,7 @@ npm run dev
 
 The application will be available at:
 
-```
+```text
 http://localhost:3000
 ```
 
@@ -110,7 +104,6 @@ http://localhost:3000
 - Dashboard
 - Customer Management
 - Invoice Management
-- Payment Processing
 - PDF Generation
 - Email Notifications
 
@@ -118,9 +111,8 @@ http://localhost:3000
 
 ## Future Enhancements
 
-- Multi-user organization support
+- Multi-user support
 - Advanced analytics dashboard
-- GST and tax report generation
 - Invoice templates
 - Mobile application
 - Multi-currency support
