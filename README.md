@@ -2,9 +2,9 @@
 
 ## Overview
 
-Smart Invoice Manager is a modern full-stack web application designed to streamline invoice creation and customer management. It provides an efficient platform for generating professional invoices, organizing customer information, and managing invoice records through an intuitive and responsive interface.
+Smart Invoice Manager is a modern full-stack web application developed to simplify invoice creation, customer management, and invoice tracking for businesses and freelancers. The application provides a centralized platform to create, update, organize, and monitor invoices while maintaining customer information in a secure and structured manner. It also supports PDF invoice generation and email delivery, helping users reduce manual effort, improve productivity, and maintain accurate business records.
 
-The application is built using a modern technology stack, including Next.js, React, TypeScript, GraphQL, Prisma ORM, PostgreSQL, and Tailwind CSS. It follows industry-standard software development practices with a scalable architecture and responsive user interface.
+The application is built using Next.js, React, TypeScript, GraphQL, Prisma ORM, PostgreSQL, and Tailwind CSS. It follows modern software engineering practices, including modular architecture, secure API development, efficient database management, environment-based configuration, and responsive user interface design. The scalable architecture ensures the application is easy to maintain and extend with future enhancements, making it a practical full-stack project that demonstrates real-world web development skills.
 
 ---
 
