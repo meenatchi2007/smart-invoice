@@ -1,0 +1,8 @@
+# Connect to Postgres via the shared transaction-mode pooler (IPv4-only)
+DATABASE_URL="postgresql://postgres.wcbhxtrfyqeidjircmcx:MEENAsurya2306@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres?pgbouncer=true"
+
+# Connect to Postgres directly (used for migrations)
+DIRECT_URL="postgresql://postgres:MEENAsurya2306@db.wcbhxtrfyqeidjircmcx.supabase.co:5432/postgres"
+
+RESEND_API_KEY=re_3ZyJ4dT2_F5qiEm62ADzQ9nmT6jpQEABk
+FROM_EMAIL=onboarding@resend.dev

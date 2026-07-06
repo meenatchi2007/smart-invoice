@@ -1,0 +1,169 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id             String        @id @default(cuid())
+  email          String        @unique
+  name           String?
+  avatar         String?
+  passwordHash   String?
+  role           String        @default("OWNER") // SQLite compatibility: using String for simplicity, or Prisma enums
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  invoices       Invoice[]
+  expenses       Expense[]
+}
+
+model Organization {
+  id            String     @id @default(cuid())
+  name          String
+  logo          String?
+  address       String?
+  taxId         String?
+  currency      String     @default("USD")
+  users         User[]
+  clients       Client[]
+  invoices      Invoice[]
+  expenses      Expense[]
+  categories    Category[]
+  createdAt     DateTime   @default(now())
+}
+
+model Client {
+  id             String       @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  address        String?
+  company        String?
+  taxId          String?
+  currency       String       @default("USD")
+  notes          String?
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  invoices       Invoice[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model Invoice {
+  id             String       @id @default(cuid())
+  invoiceNumber  String       @unique
+  title          String?
+  status         String       @default("DRAFT") // DRAFT, SENT, VIEWED, PARTIAL, PAID, OVERDUE, CANCELLED
+  issueDate      DateTime     @default(now())
+  dueDate        DateTime
+  currency       String       @default("USD")
+  notes          String?
+  terms          String?
+  taxRate        Float        @default(0)
+  discountRate   Float        @default(0)
+  subtotal       Float        @default(0)
+  taxAmount      Float        @default(0)
+  discountAmount Float        @default(0)
+  total          Float        @default(0)
+  paidAmount     Float        @default(0)
+  pdfUrl         String?
+  sentAt         DateTime?
+  paidAt         DateTime?
+
+  clientId       String
+  client         Client       @relation(fields: [clientId], references: [id])
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+
+  lineItems      LineItem[]
+  payments       Payment[]
+  activities     Activity[]
+  reminders      Reminder[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model LineItem {
+  id          String   @id @default(cuid())
+  description String
+  quantity    Float
+  unitPrice   Float
+  amount      Float
+  taxRate     Float    @default(0)
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  amount          Float
+  method          String   // BANK_TRANSFER, CREDIT_CARD, CASH, STRIPE, PAYPAL, CHECK, OTHER
+  reference       String?
+  notes           String?
+  paidAt          DateTime @default(now())
+  invoiceId       String
+  invoice         Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  stripePaymentId String?
+}
+
+model Expense {
+  id             String       @id @default(cuid())
+  title          String
+  amount         Float
+  currency       String       @default("USD")
+  date           DateTime
+  receiptUrl     String?
+  notes          String?
+  aiCategory     String?
+  isRecurring    Boolean      @default(false)
+
+  categoryId     String?
+  category       Category?    @relation(fields: [categoryId], references: [id])
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  createdAt      DateTime     @default(now())
+}
+
+model Category {
+  id             String       @id @default(cuid())
+  name           String
+  color          String?
+  icon           String?
+  type           String       @default("EXPENSE") // INCOME, EXPENSE
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  expenses       Expense[]
+}
+
+model Activity {
+  id          String   @id @default(cuid())
+  type        String
+  description String
+  metadata    String?  // Storing JSON string for broad compatibility across SQLite & Postgres
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model Reminder {
+  id          String    @id @default(cuid())
+  type        String    // BEFORE_DUE, ON_DUE, AFTER_DUE
+  scheduledAt DateTime
+  sentAt      DateTime?
+  status      String    @default("PENDING") // PENDING, SENT, FAILED
+  invoiceId   String
+  invoice     Invoice   @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+}
